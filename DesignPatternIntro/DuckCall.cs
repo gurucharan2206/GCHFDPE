@@ -7,24 +7,21 @@ namespace GCHFDPE.DesignPatternIntro
 {
     public class DuckCall
     {
-        public Duck duck;
-        public QuackBehavior quackBehavior;
+        public Duck duck; //Has-A is better than Is-A; Favor Composition over inheritance
 
         public DuckCall()
         {
             duck = new MallardDuck();
-            quackBehavior = new Quack();
         }
 
         public void SetDuckType(Duck duckType)
         {
-            duck = duckType;
+            duck = duckType;    //delegate the duck type to Duck
         }
 
         public void SetQuackType(QuackBehavior qb)
         {
-            quackBehavior = qb;
+            duck.SetQuackingBehavior(qb);
         }
-
     }
 }
