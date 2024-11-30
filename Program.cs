@@ -1,6 +1,8 @@
+using GCHFDPE.DesignPatternIntro;
 using GCHFDPE.DesignPatternIntro.Classes;
 using GCHFDPE.DesignPatternIntro.Classes.Ducks;
 using GCHFDPE.DesignPatternIntro.Classes.FlyingBehaviors;
+using GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors;
 
 class Program
 {
@@ -26,5 +28,11 @@ public class MiniDuckSimulator
         modelDuck.SetFlyingBehavior(new FlyRocketPowered());
         modelDuck.PerformFly();
         modelDuck.PerformQuack();
+
+        DuckCall duckCall = new DuckCall();
+        duckCall.duck.PerformQuack();
+        duckCall.SetDuckType(new ModelDuck());
+        duckCall.SetQuackType(new Squeak());
+        duckCall.duck.PerformQuack();
     }
 }
