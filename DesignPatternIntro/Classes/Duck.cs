@@ -4,6 +4,17 @@ namespace GCHFDPE.DesignPatternIntro.Classes
 {
     public abstract class Duck
     {
+        /*
+         
+        STRATEGY PATTERN:
+            Defines a family of algorithms, 
+            -   Encapsulates each one, and 
+            -   Makes them INTERCHANGEABLE.
+
+        Strategy lets the algorithm vary independently from clients that use it
+            
+        */
+
         public FlyBehavior flyBehavior;    //if no keyword, default is private access
         public QuackBehavior quackBehavior;
 
