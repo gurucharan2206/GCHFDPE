@@ -1,21 +1,22 @@
 using GCHFDPE.DesignPatternIntro.Classes;
+using GCHFDPE.DesignPatternIntro.Classes.Ducks;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Ok0");
-        Console.WriteLine("Ok1");
-        Console.WriteLine("Ok2");
-        Console.WriteLine("Ok3");
-        Console.WriteLine("Ok5");
+        var simulator = new MiniDuckSimulator();
+        simulator.SimulateDucks();
     }
 }
 
 public class MiniDuckSimulator
 {
-    public static void SimulateDucks()
+    public void SimulateDucks()
     {
-        
+        Duck mallardDuck = new MallardDuck();
+        mallardDuck.Display();
+        mallardDuck.PerformFly();
+        mallardDuck.PerformQuack();
     }
 }

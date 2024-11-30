@@ -6,7 +6,7 @@ namespace GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors
     {
         public void QuackSound()
         {
-            Console.WriteLine("Quack");
+            Console.WriteLine("Quack! Quack!");
         }
     }
 }

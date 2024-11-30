@@ -4,8 +4,8 @@ namespace GCHFDPE.DesignPatternIntro.Classes
 {
     public abstract class Duck
     {
-        FlyBehavior flyBehavior;
-        QuackBehavior quackBehavior;
+        public FlyBehavior flyBehavior;    //if no keyword, default is private access
+        public QuackBehavior quackBehavior;
 
         public Duck()
         {
