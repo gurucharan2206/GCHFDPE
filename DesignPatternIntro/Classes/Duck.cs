@@ -14,6 +14,16 @@ namespace GCHFDPE.DesignPatternIntro.Classes
 
         public abstract void Display(); //abstract methods do not have body
 
+        public void SetFlyingBehavior(FlyBehavior fb)
+        {
+            flyBehavior = fb;
+        }
+
+        public void SetQuackingBehavior(QuackBehavior qb)
+        {
+            quackBehavior = qb;
+        }
+
         public void PerformFly()
         {
             flyBehavior.Fly(); //delegating to behavior class

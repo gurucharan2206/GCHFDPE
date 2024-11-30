@@ -1,5 +1,6 @@
 using GCHFDPE.DesignPatternIntro.Classes;
 using GCHFDPE.DesignPatternIntro.Classes.Ducks;
+using GCHFDPE.DesignPatternIntro.Classes.FlyingBehaviors;
 
 class Program
 {
@@ -18,5 +19,12 @@ public class MiniDuckSimulator
         mallardDuck.Display();
         mallardDuck.PerformFly();
         mallardDuck.PerformQuack();
+
+        Duck modelDuck = new ModelDuck();
+        modelDuck.Display();
+        modelDuck.PerformFly();
+        modelDuck.SetFlyingBehavior(new FlyRocketPowered());
+        modelDuck.PerformFly();
+        modelDuck.PerformQuack();
     }
 }
