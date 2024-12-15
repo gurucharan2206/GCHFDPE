@@ -1,21 +1,38 @@
+using GCHFDPE.DesignPatternIntro;
 using GCHFDPE.DesignPatternIntro.Classes;
+using GCHFDPE.DesignPatternIntro.Classes.Ducks;
+using GCHFDPE.DesignPatternIntro.Classes.FlyingBehaviors;
+using GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Ok0");
-        Console.WriteLine("Ok1");
-        Console.WriteLine("Ok2");
-        Console.WriteLine("Ok3");
-        Console.WriteLine("Ok5");
+        var simulator = new MiniDuckSimulator();
+        simulator.SimulateDucks();
     }
 }
 
 public class MiniDuckSimulator
 {
-    public static void SimulateDucks()
+    public void SimulateDucks()
     {
-        
+        Duck mallardDuck = new MallardDuck();
+        mallardDuck.Display();
+        mallardDuck.PerformFly();
+        mallardDuck.PerformQuack();
+
+        Duck modelDuck = new ModelDuck();
+        modelDuck.Display();
+        modelDuck.PerformFly();
+        modelDuck.SetFlyingBehavior(new FlyRocketPowered());
+        modelDuck.PerformFly();
+        modelDuck.PerformQuack();
+
+        DuckCall duckCall = new DuckCall();
+        duckCall.duck.PerformQuack();
+        duckCall.SetDuckType(new ModelDuck());
+        duckCall.SetQuackType(new Squeak());
+        duckCall.duck.PerformQuack();
     }
 }

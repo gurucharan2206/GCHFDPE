@@ -7,7 +7,7 @@ namespace GCHFDPE.DesignPatternIntro.Classes.Ducks
     {
         public MallardDuck()
         {
-            var quackBehavior = new Quack();
+            quackBehavior = new Quack(); //now that base class has "public" keyword, we can use them here
             flyBehavior = new FlyWithWings();
         }
 
