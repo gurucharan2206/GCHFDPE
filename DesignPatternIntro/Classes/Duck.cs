@@ -12,7 +12,7 @@ namespace GCHFDPE.DesignPatternIntro.Classes
             -   Makes them INTERCHANGEABLE.
 
         Strategy lets the algorithm vary independently from clients that use it
-            
+
         */
 
         public FlyBehavior flyBehavior;    //if no keyword, default is private access
