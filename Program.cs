@@ -3,13 +3,19 @@ using GCHFDPE.DesignPatternIntro.Classes;
 using GCHFDPE.DesignPatternIntro.Classes.Ducks;
 using GCHFDPE.DesignPatternIntro.Classes.FlyingBehaviors;
 using GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors;
+using GCHFDPE.KeepingObjectsInTheKnow;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        var simulator = new MiniDuckSimulator();
-        simulator.SimulateDucks();
+        //Chapter 1
+        //var simulator = new MiniDuckSimulator();
+        //simulator.SimulateDucks();
+
+        //Chapter 2
+        var weatherData = new WeatherData();
+        Console.WriteLine(weatherData.MeasurementsChanged());
     }
 }
 
