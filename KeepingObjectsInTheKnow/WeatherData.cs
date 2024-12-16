@@ -37,6 +37,10 @@ namespace GCHFDPE.KeepingObjectsInTheKnow
             NotifyObservers();
         }
 
+        /*
+         * Acts as reading weather data off a device
+         * Todo: Read weather data off the web for fun!
+        */
         public void SetMeasurements()
         {
             Random rand = new Random();
