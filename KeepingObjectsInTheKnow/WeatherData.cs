@@ -1,39 +1,49 @@
-﻿namespace GCHFDPE.KeepingObjectsInTheKnow
+﻿using System;
+
+namespace GCHFDPE.KeepingObjectsInTheKnow
 {
-    public class WeatherData
+    public class WeatherData : ISubject
     {
+        private IList<IObserver> _observers;
         private float _temperature;
         private float _humidity;
         private float _pressure;
 
-        public float GetTemperature()
+        public WeatherData()
         {
-            Random rand = new Random();
-            _temperature = (float)rand.NextDouble();
-            return _temperature;
+            _observers = new List<IObserver>();
         }
 
-        public float GetHumidity()
+        public void RegisterObserver(IObserver o)
         {
-            Random rand = new Random();
-            _humidity = (float)rand.NextDouble();
-            return _humidity;
+            _observers.Add(o);
         }
 
-        public float GetPressure()
+        public void RemoveObserver(IObserver o)
         {
-            Random rand = new Random();
-            _pressure = (float)rand.NextDouble();
-            return _pressure;
+            _observers.Remove(o);
         }
 
-        public string MeasurementsChanged()
+        public void NotifyObservers()
         {
-            float temp = GetTemperature();
-            float humidity = GetHumidity();
-            float pressure = GetPressure();
+            foreach(IObserver observer in _observers)
+            {
+                observer.Update(_temperature, _humidity, _pressure);
+            }
+        }
 
-            return $"{temp} {humidity} {pressure}";
+        public void MeasurementsChanged()
+        {
+            NotifyObservers();
+        }
+
+        public void SetMeasurements()
+        {
+            Random rand = new Random();
+            this._temperature = (float)rand.NextDouble();
+            this._humidity = (float)rand.NextDouble() * 105;
+            this._pressure = (float)(rand.NextDouble() * 1.5);
+            MeasurementsChanged();
         }
     }
 }
