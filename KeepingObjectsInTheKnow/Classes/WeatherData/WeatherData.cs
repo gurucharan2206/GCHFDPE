@@ -1,6 +1,7 @@
 ﻿using System;
+using GCHFDPE.KeepingObjectsInTheKnow.Interfaces;
 
-namespace GCHFDPE.KeepingObjectsInTheKnow
+namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.WeatherData
 {
     public class WeatherData : ISubject
     {
@@ -26,7 +27,7 @@ namespace GCHFDPE.KeepingObjectsInTheKnow
 
         public void NotifyObservers()
         {
-            foreach(IObserver observer in _observers)
+            foreach (IObserver observer in _observers)
             {
                 observer.Update(_temperature, _humidity, _pressure);
             }
@@ -44,9 +45,9 @@ namespace GCHFDPE.KeepingObjectsInTheKnow
         public void SetMeasurements()
         {
             Random rand = new Random();
-            this._temperature = (float)rand.NextDouble();
-            this._humidity = (float)rand.NextDouble() * 105;
-            this._pressure = (float)(rand.NextDouble() * 1.5);
+            _temperature = (float)rand.NextDouble();
+            _humidity = (float)rand.NextDouble() * 105;
+            _pressure = (float)(rand.NextDouble() * 1.5);
             MeasurementsChanged();
         }
     }
