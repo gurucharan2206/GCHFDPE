@@ -1,10 +1,16 @@
 ﻿using System;
 using GCHFDPE.KeepingObjectsInTheKnow.Interfaces;
 
-namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.WeatherData
+namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
 {
     public class WeatherData : ISubject
     {
+        /* DP:
+        * Strive for loosely coupled designs between objects that interact
+        *       Allows us to build flexible OO systems that can handle change because they
+        *       minimize the interdependency between objects
+        */
+
         private IList<IObserver> _observers;
         private float _temperature;
         private float _humidity;
@@ -33,9 +39,10 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.WeatherData
             }
         }
 
-        public void MeasurementsChanged()
+        public string MeasurementsChanged()
         {
             NotifyObservers();
+            return "Measurements Changed";
         }
 
         /*

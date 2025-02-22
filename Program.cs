@@ -4,6 +4,8 @@ using GCHFDPE.DesignPatternIntro.Classes.Ducks;
 using GCHFDPE.DesignPatternIntro.Classes.FlyingBehaviors;
 using GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors;
 using GCHFDPE.KeepingObjectsInTheKnow;
+using GCHFDPE.KeepingObjectsInTheKnow.Classes;
+using GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements;
 
 class Program
 {
@@ -14,8 +16,8 @@ class Program
         //simulator.SimulateDucks();
 
         //Chapter 2
-        var weatherData = new WeatherData();
-        Console.WriteLine(weatherData.MeasurementsChanged());
+        var weatherStation = new WeatherStation();
+        weatherStation.SimulateWeatherStation();
     }
 }
 
@@ -40,5 +42,19 @@ public class MiniDuckSimulator
         duckCall.SetDuckType(new ModelDuck());
         duckCall.SetQuackType(new Squeak());
         duckCall.duck.PerformQuack();
+    }
+}
+
+public class WeatherStation
+{
+    public void SimulateWeatherStation()
+    {
+        WeatherData weatherData = new WeatherData();
+        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
+        StatisticsDisplay statsDisplay = new StatisticsDisplay(weatherData);
+        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+        weatherData.SetMeasurements();
+        weatherData.SetMeasurements();
+        weatherData.SetMeasurements();
     }
 }
