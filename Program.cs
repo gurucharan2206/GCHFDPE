@@ -116,15 +116,16 @@ public class StarBuzzCoffee
         Console.WriteLine($"{beverage.GetDescription()} Cost: ${beverage.Cost()}");
 
         Beverage beverage2 = new DarkRoast();
+        Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
         beverage2 = new Mocha(beverage2);
-        beverage2 = new Mocha(beverage2);
-        beverage2 = new Whip(beverage2);
+        //beverage2 = new Mocha(beverage2);
+        //beverage2 = new Whip(beverage2);
         Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
 
-        Beverage beverage3 = new HouseBlend();
-        beverage3 = new Mocha(beverage3);
-        beverage3 = new Soy(beverage3);
-        beverage3 = new Whip(beverage3);
-        Console.WriteLine($"{beverage3.GetDescription()} Cost: ${beverage3.Cost()}");
+        //Beverage beverage3 = new HouseBlend();
+        //beverage3 = new Mocha(beverage3);
+        //beverage3 = new Soy(beverage3);
+        //beverage3 = new Whip(beverage3);
+        //Console.WriteLine($"{beverage3.GetDescription()} Cost: ${beverage3.Cost()}");
     }
 }

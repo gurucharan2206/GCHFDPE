@@ -4,6 +4,6 @@
     {
         protected Beverage _beverage;
 
-        public abstract string GetDescription();
+        public abstract override string GetDescription();
     }
 }

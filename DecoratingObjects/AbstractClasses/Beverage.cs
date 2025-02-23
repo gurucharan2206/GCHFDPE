@@ -25,7 +25,8 @@
         */
         protected string _description = "Unknown Beverage"; //protect so its inheriting members can access
 
-        public string GetDescription()
+        //Without "virtual" the method would be 'sealed', meaning we couldn’t override it in any subclasses
+        public virtual string GetDescription()
         {
             return _description;
         }
