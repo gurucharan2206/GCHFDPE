@@ -64,6 +64,7 @@ public class WeatherStation
         StatisticsDisplay statsDisplay = new StatisticsDisplay(weatherData);
         ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
         HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
+        AvgMaxMinDisplay avgMaxMinDisplay = new AvgMaxMinDisplay(weatherData);
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();

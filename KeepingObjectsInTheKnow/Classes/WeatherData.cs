@@ -1,5 +1,7 @@
 ﻿using System;
+using GCHFDPE.KeepingObjectsInTheKnow.Classes.Utils;
 using GCHFDPE.KeepingObjectsInTheKnow.Interfaces;
+using static GCHFDPE.KeepingObjectsInTheKnow.Classes.Utils.Constants;
 
 namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
 {
@@ -20,6 +22,9 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
         private float _temperature;
         private float _humidity;
         private float _pressure;
+        private List<float> _historicalTemperatures = new List<float>();
+        private List<float> _historicalHumidities = new List<float>();
+        private List<float> _historicalPressures = new List<float>();
 
         public float Temperature
         {
@@ -33,6 +38,21 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
         public float Pressure
         {
             get { return _pressure; }
+        }
+
+        public List<float> HistoricalMeasurements(Constants.WeatherProperties property)
+        {
+            switch (property)
+            {
+                case Constants.WeatherProperties.Temperature:
+                    return _historicalTemperatures;
+                case Constants.WeatherProperties.Humidity:
+                    return _historicalHumidities;
+                case Constants.WeatherProperties.Pressure:
+                    return _historicalPressures;
+                default:
+                    return new List<float>();
+            }
         }
 
         public WeatherData()
@@ -74,6 +94,11 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
             _temperature = (float)rand.NextDouble();
             _humidity = (float)rand.NextDouble() * 105;
             _pressure = (float)(rand.NextDouble() * 1.5);
+
+            _historicalTemperatures.Add(_temperature);
+            _historicalHumidities.Add(_humidity);
+            _historicalPressures.Add(_pressure);
+
             MeasurementsChanged();
         }
     }

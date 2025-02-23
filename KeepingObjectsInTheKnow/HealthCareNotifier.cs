@@ -1,4 +1,4 @@
-﻿namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
+﻿namespace GCHFDPE.KeepingObjectsInTheKnow
 {
     public class HealthCareNotifier
     {
@@ -27,7 +27,7 @@
 
         public void PatientMetricMonitor()
         {
-            if(40 < 80)
+            if (40 < 80)
             {
                 Console.WriteLine("Patient metrics down");
                 PageDepartments?.Invoke();
