@@ -15,11 +15,11 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Update()
         {
-            this._forecastTemperature = temp + 50;
-            this._forecastHumidity = humidity + 50;
-            this._forecastPressure = pressure + 50;
+            this._forecastTemperature = _weatherData.Temperature + 50;
+            this._forecastHumidity = _weatherData.Humidity + 50;
+            this._forecastPressure = _weatherData.Pressure + 50;
             Display();
         }
 

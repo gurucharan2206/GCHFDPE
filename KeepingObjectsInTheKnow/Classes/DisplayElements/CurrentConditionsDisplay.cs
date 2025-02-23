@@ -7,7 +7,7 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements
     {
         private float _temperature { get; set; }
         private float _humidity { get; set; }
-        public float _pressure { get; set; }
+        private float _pressure { get; set; }
         private WeatherData _weatherData;
 
         public CurrentConditionsDisplay(WeatherData weatherData)
@@ -16,11 +16,11 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Update()
         {
-            _temperature = temp;
-            _humidity = humidity;
-            _pressure = pressure;
+            this._temperature = _weatherData.Temperature;
+            this._humidity = _weatherData.Humidity;
+            this._pressure = _weatherData.Pressure;
             Display();
         }
 

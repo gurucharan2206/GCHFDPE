@@ -21,11 +21,11 @@ class Program
         /*
          * Chapter 2
          */
-        //var weatherStation = new WeatherStation();
-        //weatherStation.SimulateWeatherStation();
+        var weatherStation = new WeatherStation();
+        weatherStation.SimulateWeatherStation();
 
-        var hospital = new Hospital();
-        hospital.SimulatePatientNotification();
+        //var hospital = new Hospital();
+        //hospital.SimulatePatientNotification();
     }
 }
 

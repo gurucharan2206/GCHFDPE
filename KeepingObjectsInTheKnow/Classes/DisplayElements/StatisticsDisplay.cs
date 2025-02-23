@@ -4,10 +4,10 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements
 {
     public class StatisticsDisplay: IDisplayElement, IObserver
     {
-        public float _percentHumidity { get; set; }
-        public float _percentTemperature { get; set; }
-        public float _percentPressure { get; set; }
-        public WeatherData _weatherData { get; set; }
+        private float _percentHumidity { get; set; }
+        private float _percentTemperature { get; set; }
+        private float _percentPressure { get; set; }
+        private WeatherData _weatherData { get; set; }
 
         public StatisticsDisplay(WeatherData weatherData)
         {
@@ -15,11 +15,12 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Update()
         {
-            this._percentTemperature = temp / (temp + humidity + pressure);
-            this._percentHumidity = humidity / (temp + humidity + pressure);
-            this._percentPressure = pressure / (temp + humidity + pressure);
+            var sumForStats = _weatherData.Temperature + _weatherData.Humidity + _weatherData.Pressure;
+            this._percentTemperature = _weatherData.Temperature / (sumForStats);
+            this._percentHumidity = _weatherData.Humidity / (sumForStats);
+            this._percentPressure = _weatherData.Pressure / (sumForStats);
             Display();
         }
 

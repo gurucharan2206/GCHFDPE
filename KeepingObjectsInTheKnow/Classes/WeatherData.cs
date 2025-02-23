@@ -11,10 +11,29 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
         *       minimize the interdependency between objects
         */
 
+        /*
+         * Pushing notifications so far to all observers, now let observers pull data they need!
+         * Pulling is implemented by using getter methods from weather data inside observers
+         */
+
         private IList<IObserver> _observers;
         private float _temperature;
         private float _humidity;
         private float _pressure;
+
+        public float Temperature
+        {
+            get { return _temperature; }
+        }
+        public float Humidity
+        {
+            get { return _humidity; }
+        }
+
+        public float Pressure
+        {
+            get { return _pressure; }
+        }
 
         public WeatherData()
         {
@@ -35,7 +54,7 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
         {
             foreach (IObserver observer in _observers)
             {
-                observer.Update(_temperature, _humidity, _pressure);
+                observer.Update();
             }
         }
 
