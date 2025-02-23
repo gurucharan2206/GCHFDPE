@@ -53,6 +53,8 @@ public class WeatherStation
         CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
         StatisticsDisplay statsDisplay = new StatisticsDisplay(weatherData);
         ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
+        weatherData.SetMeasurements();
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();
