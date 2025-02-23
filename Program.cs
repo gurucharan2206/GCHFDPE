@@ -79,6 +79,7 @@ public class Hospital
         healthCareNotifier.PageDepartments += healthCareNotifier.Cardiology;
         healthCareNotifier.PageDepartments += healthCareNotifier.Nurse;
 
+        //Lambda expression with Action (predefined delegate type)
         Action wardGuard = () =>
         {
             Console.WriteLine("Ward alert!");
@@ -87,6 +88,10 @@ public class Hospital
         // Action is a predefined delegate type in C# that doesn’t match the signature of the event handler for PageDepartments
         // Action delegate doesn't directly match the event handler type (PageDepartments), so we invoke the Action within the event subscription.
         healthCareNotifier.PageDepartments += () => wardGuard(); //invoke action within event subscription to avoid delegate type compatilbility issue
+        healthCareNotifier.PageDepartments += () =>
+        {
+            Console.WriteLine("Stand-by for OT alert to management");
+        };
 
         healthCareNotifier.PatientMetricMonitor();
     }
