@@ -12,8 +12,8 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
         */
 
         /*
-         * Pushing notifications so far to all observers, now let observers pull data they need!
-         * Pulling is implemented by using getter methods from weather data inside observers
+         * Pushing for Subject: notifications so far to all observers, now let observers pull data they need!
+         * Pulling for Observers: is implemented by using getter methods from weather data inside observers
          */
 
         private IList<IObserver> _observers;
