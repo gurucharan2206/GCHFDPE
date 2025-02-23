@@ -6,21 +6,30 @@ using GCHFDPE.DesignPatternIntro.Classes.QuackingBehaviors;
 using GCHFDPE.KeepingObjectsInTheKnow;
 using GCHFDPE.KeepingObjectsInTheKnow.Classes;
 using GCHFDPE.KeepingObjectsInTheKnow.Classes.DisplayElements;
+using GCHFDPE.KeepingObjectsInTheKnow.Interfaces;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        //Chapter 1
+        /*
+         * Chapter 1
+         */
         //var simulator = new MiniDuckSimulator();
         //simulator.SimulateDucks();
 
-        //Chapter 2
-        var weatherStation = new WeatherStation();
-        weatherStation.SimulateWeatherStation();
+        /*
+         * Chapter 2
+         */
+        //var weatherStation = new WeatherStation();
+        //weatherStation.SimulateWeatherStation();
+
+        var hospital = new Hospital();
+        hospital.SimulatePatientNotification();
     }
 }
 
+//Chapter 1
 public class MiniDuckSimulator
 {
     public void SimulateDucks()
@@ -45,6 +54,7 @@ public class MiniDuckSimulator
     }
 }
 
+//Chapter 2
 public class WeatherStation
 {
     public void SimulateWeatherStation()
@@ -58,5 +68,16 @@ public class WeatherStation
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();
         weatherData.SetMeasurements();
+    }
+}
+
+public class Hospital
+{
+    public void SimulatePatientNotification()
+    {
+        HealthCareNotifier healthCareNotifier = new HealthCareNotifier();
+        healthCareNotifier.PageDepartments += healthCareNotifier.Cardiology;
+        healthCareNotifier.PageDepartments += healthCareNotifier.Nurse;
+        healthCareNotifier.PatientMetricMonitor();
     }
 }
