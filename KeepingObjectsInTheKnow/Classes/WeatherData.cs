@@ -18,6 +18,17 @@ namespace GCHFDPE.KeepingObjectsInTheKnow.Classes
          * Pulling for Observers: is implemented by using getter methods from weather data inside observers
          */
 
+        /*
+         
+        OBSERVER PATTERN:
+            Defines a one-to-many dependency, 
+            -   between objects so that when one object changes state,
+            -   all its dependents are notified and updated automatically
+
+        Communicate state to set of objects in a loosely coupled manner
+
+        */
+
         private IList<IObserver> _observers;
         private float _temperature;
         private float _humidity;
