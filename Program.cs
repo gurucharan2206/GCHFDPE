@@ -1,3 +1,6 @@
+using GCHFDPE.DecoratingObjects.AbstractClasses;
+using GCHFDPE.DecoratingObjects.Classes;
+using GCHFDPE.DecoratingObjects.ConcreteDecorators;
 using GCHFDPE.DesignPatternIntro;
 using GCHFDPE.DesignPatternIntro.Classes;
 using GCHFDPE.DesignPatternIntro.Classes.Ducks;
@@ -21,11 +24,17 @@ class Program
         /*
          * Chapter 2
          */
-        var weatherStation = new WeatherStation();
-        weatherStation.SimulateWeatherStation();
+        //var weatherStation = new WeatherStation();
+        //weatherStation.SimulateWeatherStation();
 
         //var hospital = new Hospital();
         //hospital.SimulatePatientNotification();
+
+        /*
+         * Chapter 3
+         */
+        var starBuzzCoffee = new StarBuzzCoffee();
+        starBuzzCoffee.SimulateCoffeeOrders();
     }
 }
 
@@ -95,5 +104,28 @@ public class Hospital
         };
 
         healthCareNotifier.PatientMetricMonitor();
+    }
+}
+
+//Chapter 3
+public class StarBuzzCoffee
+{
+    public void SimulateCoffeeOrders()
+    {
+        Beverage beverage = new Espresso();
+        Console.WriteLine($"{beverage.GetDescription()} Cost: ${beverage.Cost()}");
+
+        Beverage beverage2 = new DarkRoast();
+        Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
+        beverage2 = new Mocha(beverage2);
+        beverage2 = new Mocha(beverage2);
+        beverage2 = new Whip(beverage2);
+        Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
+
+        Beverage beverage3 = new HouseBlend();
+        beverage3 = new Mocha(beverage3);
+        beverage3 = new Soy(beverage3);
+        beverage3 = new Whip(beverage3);
+        Console.WriteLine($"{beverage3.GetDescription()} Cost: ${beverage3.Cost()}");
     }
 }
