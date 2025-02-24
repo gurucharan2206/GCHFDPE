@@ -1,3 +1,7 @@
+using GCHFDPE.DecoratingObjects;
+using GCHFDPE.DecoratingObjects.AbstractClasses;
+using GCHFDPE.DecoratingObjects.Classes;
+using GCHFDPE.DecoratingObjects.ConcreteDecorators;
 using GCHFDPE.DesignPatternIntro;
 using GCHFDPE.DesignPatternIntro.Classes;
 using GCHFDPE.DesignPatternIntro.Classes.Ducks;
@@ -21,11 +25,20 @@ class Program
         /*
          * Chapter 2
          */
-        var weatherStation = new WeatherStation();
-        weatherStation.SimulateWeatherStation();
+        //var weatherStation = new WeatherStation();
+        //weatherStation.SimulateWeatherStation();
 
         //var hospital = new Hospital();
         //hospital.SimulatePatientNotification();
+
+        /*
+         * Chapter 3
+         */
+        //var starBuzzCoffee = new StarBuzzCoffee();
+        //starBuzzCoffee.SimulateCoffeeOrders();
+
+        var fileStreamReader = new FileStreamReader();
+        fileStreamReader.SimulateReader();
     }
 }
 
@@ -95,5 +108,46 @@ public class Hospital
         };
 
         healthCareNotifier.PatientMetricMonitor();
+    }
+}
+
+//Chapter 3
+public class StarBuzzCoffee
+{
+    public void SimulateCoffeeOrders()
+    {
+        Beverage beverage = new Espresso(Beverage.Size.Tall);
+        Console.WriteLine($"{beverage.GetDescription()} Cost: ${beverage.Cost()}");
+
+        Beverage beverage2 = new DarkRoast(Beverage.Size.Venti);
+        beverage2 = new Mocha(beverage2);
+        beverage2 = new Mocha(beverage2);
+        beverage2 = new Whip(beverage2);
+        Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
+
+        Beverage beverage3 = new HouseBlend(Beverage.Size.Grande);
+        beverage3 = new Mocha(beverage3);
+        beverage3 = new Soy(beverage3);
+        beverage3 = new Whip(beverage3);
+        Console.WriteLine($"{beverage3.GetDescription()} Cost: ${beverage3.Cost()}");
+    }
+}
+
+public class FileStreamReader
+{
+    public void SimulateReader()
+    {
+        using (var sr = new StreamReader("C:\\Users\\guruc\\source\\repos\\GCHeadFirstDesginPatternsExploration\\DecoratingObjects\\decorator_test.txt"))
+        {
+            var line = string.Empty;
+            var lowerSr = new UpperCaseInputStream(sr);
+
+            while ((line = lowerSr.ReadLine()) != null)
+            {
+                Console.WriteLine("***********");
+                Console.WriteLine(line);
+                Console.WriteLine("***********");
+            }
+        }
     }
 }
