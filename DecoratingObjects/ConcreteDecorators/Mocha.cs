@@ -11,8 +11,24 @@ namespace GCHFDPE.DecoratingObjects.ConcreteDecorators
 
         public override double Cost()
         {
+            var condimentCost = 0.00;
+            switch (_beverage.GetSize())
+            {
+                case Size.Tall:
+                    condimentCost = 2.50;
+                    break;
+                case Size.Grande:
+                    condimentCost = 0.50;
+                    break;
+                case Size.Venti:
+                    condimentCost = 1.25;
+                    break;
+                default:
+                    break;
+            }
+
             //delegate cost to object we're decorating and add Mocha cost on top of it
-            return _beverage.Cost() + 0.05;
+            return _beverage.Cost() + condimentCost;
         }
 
         public override string GetDescription()

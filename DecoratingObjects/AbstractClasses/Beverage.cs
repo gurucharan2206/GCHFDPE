@@ -25,10 +25,23 @@
         */
         protected string _description = "Unknown Beverage"; //protect so its inheriting members can access
 
+        public enum Size { Tall, Grande, Venti };
+        protected Size _size;
+
         //Without "virtual" the method would be 'sealed', meaning we couldn’t override it in any subclasses
         public virtual string GetDescription()
         {
             return _description;
+        }
+
+        public Size GetSize()
+        {
+            return this._size;
+        }
+
+        public void SetSize(Size size)
+        {
+            this._size = size;
         }
 
         public abstract double Cost();

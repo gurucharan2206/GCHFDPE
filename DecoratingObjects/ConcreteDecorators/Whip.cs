@@ -11,7 +11,23 @@ namespace GCHFDPE.DecoratingObjects.ConcreteDecorators
 
         public override double Cost()
         {
-            return _beverage.Cost() + 0.02;
+            var condimentCost = 0.00;
+            switch (_beverage.GetSize())
+            {
+                case Size.Tall:
+                    condimentCost = 1.50;
+                    break;
+                case Size.Grande:
+                    condimentCost = 2.50;
+                    break;
+                case Size.Venti:
+                    condimentCost = 2.75;
+                    break;
+                default:
+                    break;
+            }
+
+            return _beverage.Cost() + condimentCost;
         }
 
         public override string GetDescription()

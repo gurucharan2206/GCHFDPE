@@ -112,17 +112,16 @@ public class StarBuzzCoffee
 {
     public void SimulateCoffeeOrders()
     {
-        Beverage beverage = new Espresso();
+        Beverage beverage = new Espresso(Beverage.Size.Tall);
         Console.WriteLine($"{beverage.GetDescription()} Cost: ${beverage.Cost()}");
 
-        Beverage beverage2 = new DarkRoast();
-        Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
+        Beverage beverage2 = new DarkRoast(Beverage.Size.Venti);
         beverage2 = new Mocha(beverage2);
         beverage2 = new Mocha(beverage2);
         beverage2 = new Whip(beverage2);
         Console.WriteLine($"{beverage2.GetDescription()} Cost: ${beverage2.Cost()}");
 
-        Beverage beverage3 = new HouseBlend();
+        Beverage beverage3 = new HouseBlend(Beverage.Size.Grande);
         beverage3 = new Mocha(beverage3);
         beverage3 = new Soy(beverage3);
         beverage3 = new Whip(beverage3);
