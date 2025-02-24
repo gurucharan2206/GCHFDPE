@@ -1,3 +1,4 @@
+using GCHFDPE.DecoratingObjects;
 using GCHFDPE.DecoratingObjects.AbstractClasses;
 using GCHFDPE.DecoratingObjects.Classes;
 using GCHFDPE.DecoratingObjects.ConcreteDecorators;
@@ -33,8 +34,11 @@ class Program
         /*
          * Chapter 3
          */
-        var starBuzzCoffee = new StarBuzzCoffee();
-        starBuzzCoffee.SimulateCoffeeOrders();
+        //var starBuzzCoffee = new StarBuzzCoffee();
+        //starBuzzCoffee.SimulateCoffeeOrders();
+
+        var fileStreamReader = new FileStreamReader();
+        fileStreamReader.SimulateReader();
     }
 }
 
@@ -126,5 +130,24 @@ public class StarBuzzCoffee
         beverage3 = new Soy(beverage3);
         beverage3 = new Whip(beverage3);
         Console.WriteLine($"{beverage3.GetDescription()} Cost: ${beverage3.Cost()}");
+    }
+}
+
+public class FileStreamReader
+{
+    public void SimulateReader()
+    {
+        using (var sr = new StreamReader("C:\\Users\\guruc\\source\\repos\\GCHeadFirstDesginPatternsExploration\\DecoratingObjects\\decorator_test.txt"))
+        {
+            var line = string.Empty;
+            var lowerSr = new UpperCaseInputStream(sr);
+
+            while ((line = lowerSr.ReadLine()) != null)
+            {
+                Console.WriteLine("***********");
+                Console.WriteLine(line);
+                Console.WriteLine("***********");
+            }
+        }
     }
 }
