@@ -20,7 +20,7 @@
             - We aren't using inheritance to get "behavior"
                 - Because if we rely only on inheritance here, then our behavior is determined statically at compile time
                 - So we get only whatever behavior superclass has to offer or that we override; leading to code changes in future
-            - With 'composition' for "behavior" we can mix and match decorators any we like, at runtime
+            - With 'composition' and 'delegation' for "behavior" we can mix and match decorators any we like, at runtime
 
         */
         protected string _description = "Unknown Beverage"; //protect so its inheriting members can access
