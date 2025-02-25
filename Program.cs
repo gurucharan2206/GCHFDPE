@@ -1,3 +1,5 @@
+using GCHFDPE.BakingWithOOGoodness;
+using GCHFDPE.BakingWithOOGoodness.Interfaces;
 using GCHFDPE.DecoratingObjects;
 using GCHFDPE.DecoratingObjects.AbstractClasses;
 using GCHFDPE.DecoratingObjects.Classes;
@@ -37,8 +39,14 @@ class Program
         //var starBuzzCoffee = new StarBuzzCoffee();
         //starBuzzCoffee.SimulateCoffeeOrders();
 
-        var fileStreamReader = new FileStreamReader();
-        fileStreamReader.SimulateReader();
+        //var fileStreamReader = new FileStreamReader();
+        //fileStreamReader.SimulateReader();
+
+        /*
+         * Chapter 4
+         */
+        var pizzaShop = new PizzaShop();
+        pizzaShop.OrderPizza("Cheeze");
     }
 }
 
@@ -149,5 +157,14 @@ public class FileStreamReader
                 Console.WriteLine("***********");
             }
         }
+    }
+}
+
+public class PizzaShop
+{
+    public void SimulatePizzaOrder(string type)
+    {
+        PizzaStore pizzaStore = new PizzaStore();
+        pizzaStore.OrderPizza("Cheeze");
     }
 }
